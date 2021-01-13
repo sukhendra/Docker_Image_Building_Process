@@ -1,0 +1,52 @@
+=============================================Practical1
+#docker run --name sukhicontainer -it ubuntu /bin/bash // To create container
+
+#docker diff sukhicontainer //To check the change and addition in container
+
+C- Change
+A- Addition
+
+#docker commit sukhicontainer updatedimage  // To create image out of container
+
+#docker run -it --name raghucontainer updatedimage /bin/bash // To create container out of existing image
+
+=============================================================================================================
+Dockerfile contains the set of instructions.This is a text file.
+#Docker Components
+
+FROM - base image
+RUN - To run commands
+MAINTAINER- Name of container creator like Sukhi
+COPY - copy from localfile like base machine. we cant download from internet or remote repo.
+ADD- To download something from Internet. File is in winzip. Zip and unzip ,To extract.
+EXPOSE -To expose port such as port 8080, 80.
+WORKDIR - to set working directory for container
+CMD -execute commands but during container creation
+ENTRYPOINT -similar to CMD but has higher priority over CMD.first commands will be executed by ENTRYPOINT only.
+ENV - enviroment variables
+ARG- Argument
+================================================================================================================
+
+Step1: create a file named DockerFile
+Step2: Add instructions in Dockerfile
+Step3: Build dockerfile to create image
+Step4: Run image to create container
+
+#vi Dockerfile
+FROM ubuntu
+RUN echo "Learning Docker">>/root/sukhendratest/DockerFiles
+
+docker build -t myimagesukhi .
+docker ps -a
+docker images
+docker run -it --name mycontainer myimagesukhi /bin/sukh
+cat /root/sukhendratest/DockerFiles
+
+FROM ubuntu                                                                                                                            
+WORKDIR /tmp
+RUN echo "learnig docker">>/tmp                                                                                                        
+ENV myname sukhi                                                                                                                       
+COPY testfile1 /tmp                                                                                                                    
+ADD test.tar.gz
+
+#docker run --name newcontainer -it newimage /bin/bash  //To create container                                                                                                                                
