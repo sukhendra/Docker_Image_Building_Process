@@ -47,6 +47,6 @@ WORKDIR /tmp
 RUN echo "learnig docker">>/tmp                                                                                                        
 ENV myname sukhi                                                                                                                       
 COPY testfile1 /tmp                                                                                                                    
-ADD test.tar.gz
+ADD test.tar.gz /tmp
 
 #docker run --name newcontainer -it newimage /bin/bash  //To create container                                                                                                                                
